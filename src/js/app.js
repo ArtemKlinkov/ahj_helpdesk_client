@@ -1,4 +1,3 @@
-import initData from './InitData.js';
 import WorkDisplay from './WorkDisplay.js';
 import Popovers from './Popovers.js';
 import ConfirmDel from './ConfirmDel.js';
@@ -18,7 +17,6 @@ class Work {
   }
 
   async init() {
-    initData();
     const arrTickets = await xhrClass.getTickets();
     workDisplay.redrawGoods(arrTickets);
 

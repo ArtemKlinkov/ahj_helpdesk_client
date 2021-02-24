@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable class-methods-use-this */
 const server = 'https://ahj-helpdesk-server.herokuapp.com/';
+// const server = 'http://localhost:7070/';
 
 export default class XHR {
   addTicket(name, description) {
