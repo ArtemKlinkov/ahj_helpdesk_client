@@ -17,10 +17,10 @@ export default class confirmDel {
     this.cancelDel = document.getElementById('cancel-del');
   }
 
-  delElementListener(callback) {
+  delElemListener(callback) {
     this.formDel.classList.add('hidden');
     callback();
-    this.okDel.removeEventListener('click', this.delElementListener);
+    this.okDel.removeEventListener('click', this.boundedFunc);
   }
 
   delElement(callback) {
@@ -29,7 +29,8 @@ export default class confirmDel {
       - this.formDel.offsetHeight) / 2}px`;
     this.formDel.style.left = `${(window.innerWidth
       - this.formDel.offsetWidth) / 2}px`;
-    this.okDel.addEventListener('click', this.delElementListener(callback));
+    this.boundedFunc = this.delElemListener.bind(this, callback);
+    this.okDel.addEventListener('click', this.boundedFunc);
 
     this.cancelDel.addEventListener('click', () => {
       this.formDel.classList.add('hidden');
